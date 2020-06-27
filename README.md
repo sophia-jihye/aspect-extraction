@@ -1,14 +1,15 @@
-# Aspect extraction from product reviews with Tensorflow
+## Repositories to be explored
+* [Aspect extraction for opinion mining with a deep convolutional neural network (2016)](https://github.com/jeetp465/Aspect-Based-Sentiment-Analysis)
+* [Triple Embeddings and CNN-based Sequence Labeling for Aspect Extraction and Sentiment Analysis (2018)](https://github.com/yafangy/Review_aspect_extraction)
+* [Double Embeddings and CNN based Sequence Labeling for Aspect Extraction (2018)](https://github.com/howardhsu/DE-CNN)
 
+# Aspect extraction from product reviews with Tensorflow
 This repo has multiple sequential models for aspect extraction from product reviews.
 
 ## Citation
-
-
 Poria, S., Cambria, E. and Gelbukh, A., 2016. Aspect extraction for opinion mining with a deep convolutional neural network. Knowledge-Based Systems, 108, pp.42-49.
 
 ## Task
-
 Given a sentence, the task is to extract aspects. Here is an example
 
 ```
@@ -24,39 +25,29 @@ life I-A
 of O
 this O
 phone O
-
 ```
 
 
 ## Model
 
 Similar to [Ma and Hovy](https://arxiv.org/pdf/1603.01354.pdf).
-
 - concatenate final states of a bi-lstm on character embeddings to get a character-based representation of each word
 - concatenate this representation to a standard word vector representation (GloVe here)
 - run a bi-lstm on each sentence to extract contextual representation of each word
 - decode with a linear chain CRF
 
 Similar to [Collobert et al.] (http://ronan.collobert.com/pub/matos/2011_nlp_jmlr.pdf)
-
 - form a window around the word to tag
 - apply MLP on that window
 - obtain logits
 - apply viterbi (CRF) for sequence tagging
 
 Similar to [Poria et al.](https://www.sciencedirect.com/science/article/pii/S0950705116301721)
-
 - form a window around the word to tag
 - apply CNN on that window
 - apply maxpool on that window (Caution: different from global maxpool)
 - obtain logits
 - apply CRF for sequence tagging
-
-## XML to IOB
-
-```
-python xmlToIOB.py
-```
 
 ## Details
 
@@ -85,9 +76,6 @@ Data iterators and utils are in `model/data_utils.py` and the model with trainin
 
 
 ## Training Data
-
-The training data must be in the following format (identical to the CoNLL2003 dataset).
-A default test file is provided to help you getting started.
 
 * `B-A` means that it starts a new phrase
 * `I-A` means that the word is inside a phrase
@@ -124,7 +112,6 @@ many	O
 good	O
 values	O
 ```
-
 
 Once you have produced your data files, change the parameters in `config.py` like
 
