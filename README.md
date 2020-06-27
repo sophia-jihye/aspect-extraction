@@ -86,11 +86,12 @@ Data iterators and utils are in `model/data_utils.py` and the model with trainin
 
 ## Training Data
 
-
 The training data must be in the following format (identical to the CoNLL2003 dataset).
-
 A default test file is provided to help you getting started.
 
+* `B-A` means that it starts a new phrase
+* `I-A` means that the word is inside a phrase
+* O: character O
 
 ```
 The	O

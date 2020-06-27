@@ -1,19 +1,13 @@
 import os
-
-
 from .general_utils import get_logger
 from .data_utils import get_trimmed_glove_vectors, load_vocab, \
         get_processing_word
-
-
 class Config():
     def __init__(self, load=True):
         """Initialize hyperparameters and load vocabs
-
         Args:
             load_embeddings: (bool) if True, load embeddings into
                 np array, else None
-
         """
         # directory for training outputs
         if not os.path.exists(self.dir_output):
@@ -56,7 +50,8 @@ class Config():
 
 
     # general config
-    dir_output = "results/test/"
+    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    dir_output = os.path.join(base_dir, 'output')
     dir_model  = dir_output + "model.weights/"
     path_log   = dir_output + "log.txt"
 
@@ -65,20 +60,16 @@ class Config():
     dim_char = 100
 
     # glove files
-    filename_glove = "/Volumes/SJwork/Glove/glove.840B.{}d.txt".format(dim_word)
+    filename_glove = os.path.join(base_dir, 'data', 'raw', 'glove.840B.%dd.txt' % dim_word)
     # trimmed embeddings (created from glove_filename with build_data.py)
-    filename_trimmed = "data/glove.840B.{}d.trimmed.npz".format(dim_word)
+    filename_trimmed = os.path.join(base_dir, 'data', 'glove.840B.%dd.trimmed.npz' % dim_word)
     use_pretrained = True
 
     # dataset
-    # filename_dev = "data/coNLL/eng/eng.testa.iob"
-    # filename_test = "data/coNLL/eng/eng.testb.iob"
-    # filename_train = "data/coNLL/eng/eng.train.iob"
-
-    #filename_dev = filename_test = filename_train = "data/test.txt" # test
-    filename_train = "data/ABSA16_Restaurants_Train_SB1_v2_mod.iob"
-    filename_dev = "data/EN_REST_SB1_TEST_2016_mod.iob"
-    filename_test = "data/EN_REST_SB1_TEST_2016_mod.iob"
+    #filename_dev = filename_test = filename_train = os.path.join('data', 'test.txt') # test
+    filename_train = os.path.join(base_dir, 'data', 'parsed', 'three-Router_Train_789.iob')
+    filename_dev = os.path.join(base_dir, 'data', 'parsed', 'three-Router_Test_88.iob')
+    filename_test = os.path.join(base_dir, 'data', 'parsed', 'three-Router_Test_88.iob')
 
     max_iter = None # if not None, max number of examples in Dataset
 

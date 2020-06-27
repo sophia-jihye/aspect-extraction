@@ -397,6 +397,7 @@ def get_chunks(seq, tags,message=None):
         result = [("PER", 0, 2), ("LOC", 3, 4)]
 
     """
+    #tags[NONE] = 4
     default = tags[NONE]
     idx_to_tag = {idx: tag for tag, idx in tags.items()}
     chunks = []
