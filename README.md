@@ -1,8 +1,9 @@
 ## Repositories to be explored
-* [Aspect extraction for opinion mining with a deep convolutional neural network (2016)](https://github.com/jeetp465/Aspect-Based-Sentiment-Analysis)
-* [Triple Embeddings and CNN-based Sequence Labeling for Aspect Extraction and Sentiment Analysis (2018)](https://github.com/yafangy/Review_aspect_extraction)
-* [Double Embeddings and CNN based Sequence Labeling for Aspect Extraction (2018)](https://github.com/howardhsu/DE-CNN)
-
+* [jeetp465; Aspect extraction for opinion mining with a deep convolutional neural network (2016)](https://github.com/jeetp465/Aspect-Based-Sentiment-Analysis)
+* [howardhsu; Double Embeddings and CNN based Sequence Labeling for Aspect Extraction (2018)](https://github.com/howardhsu/DE-CNN)
+* [yafangy; Double Embeddings and CNN-based Sequence Labeling for Aspect Extraction (2018)](https://github.com/yafangy/Review_aspect_extraction)
+> In my "triple embeddings" model, feature map output from the conv layer is concatenated with domain embeddings of the word as well as its part-of-speech tagger (stanford), and then it is feeded to a fully-connected neural network with one hidden layer of size 50.
+    
 # Aspect extraction from product reviews with Tensorflow
 This repo has multiple sequential models for aspect extraction from product reviews.
 
